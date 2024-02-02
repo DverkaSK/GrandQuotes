@@ -1,0 +1,4 @@
+name: GrandQuotes
+version: '${version}'
+main: ru.dverkask.grandquotes.GrandQuotes
+api-version: '1.20'
