@@ -2,17 +2,15 @@ package ru.dverkask.grandquotes.api;
 
 import lombok.Builder;
 import lombok.Getter;
-import org.bukkit.entity.Player;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 
 @Builder
 @Getter
 public class Quote {
     private Color           background;
-    private Player          player;
+    private UUID            uuid;
     private String          text;
     private Color           textColor;
     private Color           strokeColor;
@@ -26,7 +24,7 @@ public class Quote {
         @Builder.Default
         private int    style = Font.PLAIN;
         @Builder.Default
-        private int    size  = 14;
+        private int    size  = 8;
 
         public Font font() {
             return new Font(name, style, size);
