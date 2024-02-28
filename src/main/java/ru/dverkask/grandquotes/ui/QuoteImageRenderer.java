@@ -36,38 +36,6 @@ public class QuoteImageRenderer {
         this.graphics.fillRect(0, 0, IMAGE_SIZE, IMAGE_SIZE);
     }
 
-    private void drawText() {
-        int           maxWidth    = 10;
-        String[]      words       = quote.getText().split(" ");
-        StringBuilder currentLine = new StringBuilder(words[0]);
-
-        graphics.setFont(quote.getFont().font());
-
-        FontMetrics fm = graphics.getFontMetrics();
-
-        List<String> lines = new ArrayList<>();
-        for (int i = 1; i < words.length; i++) {
-            if (fm.stringWidth(currentLine + words[i]) < maxWidth) {
-                currentLine.append(" ").append(words[i]);
-            } else {
-                lines.add(currentLine.toString());
-                currentLine = new StringBuilder(words[i]);
-            }
-        }
-
-        if (!currentLine.toString().trim().isEmpty()) {
-            lines.add(currentLine.toString());
-        }
-
-        int lineNumber = 0;
-        for (String line : lines) {
-            int x = (image.getWidth() - fm.stringWidth(line)) / 2;
-            int y = (image.getHeight() / 2) - ((lines.size() - 1) * fm.getHeight() / 2) + (lineNumber * fm.getHeight());
-            graphics.drawString(line, x, y);
-            lineNumber++;
-        }
-    }
-
     @SneakyThrows public void draw() {
         for (RenderOperation operation : operations) {
             operation.render(graphics);
