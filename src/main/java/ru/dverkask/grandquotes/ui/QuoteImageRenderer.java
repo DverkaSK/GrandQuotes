@@ -3,6 +3,7 @@ package ru.dverkask.grandquotes.ui;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import ru.dverkask.grandquotes.api.Quote;
+import ru.dverkask.grandquotes.api.utils.ImageSpecifications;
 import ru.dverkask.grandquotes.ui.text.TextDrawer;
 
 import javax.imageio.ImageIO;
@@ -13,14 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuoteImageRenderer {
-    private static final int                   IMAGE_SIZE = 128;
+    private static final int                   IMAGE_SIZE = ImageSpecifications.IMAGE_SIZE.getProperty();
     private final        List<RenderOperation> operations;
     private final        BufferedImage         image;
     private final        Graphics2D            graphics;
-    private final        Quote                 quote;
 
     public QuoteImageRenderer(@NonNull Quote quote) {
-        this.quote = quote;
         this.image = new BufferedImage(
                 IMAGE_SIZE,
                 IMAGE_SIZE,
