@@ -4,13 +4,11 @@ import lombok.NonNull;
 import lombok.SneakyThrows;
 import ru.dverkask.grandquotes.api.Quote;
 import ru.dverkask.grandquotes.api.utils.ImageSpecifications;
-import ru.dverkask.grandquotes.ui.text.TextDrawer;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 public class QuoteImageRenderer {
