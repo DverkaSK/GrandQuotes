@@ -1,6 +1,5 @@
 package ru.dverkask.grandquotes.ui.text;
 
-import lombok.RequiredArgsConstructor;
 import ru.dverkask.grandquotes.api.Quote;
 import ru.dverkask.grandquotes.ui.RenderOperation;
 
@@ -9,19 +8,23 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor
 public class TextDrawer implements RenderOperation {
-    private final Quote         quote;
     private final BufferedImage image;
-    private final TextFormatter formatter;
+    private final List<TextElement> textElements;
+    public TextDrawer(BufferedImage image, TextElement... textElements) {
+        this.image = image;
+        this.textElements = List.of(textElements);
+    }
 
     @Override public void render(Graphics2D graphics) {
-        List<String> lines = getLines(quote.getText(), graphics, 10);
+        for (TextElement element : textElements) {
+            List<String> lines = getLines(element.text(), graphics, 120);
 
-        for (int i = 0; i < lines.size(); i++) {
-            String line  = lines.get(i);
-            Point  point = formatter.position(image, graphics, line, lines.size(), i);
-            graphics.drawString(line, point.x, point.y);
+            for (int i = 0; i < lines.size(); i++) {
+                String line  = lines.get(i);
+                Point  point = element.formatter().position(image, graphics, line, lines.size(), i);
+                graphics.drawString(line, point.x, point.y);
+            }
         }
     }
 

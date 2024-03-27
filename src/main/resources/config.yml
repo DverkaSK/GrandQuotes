@@ -1,0 +1,13 @@
+default:
+  color:
+    textcolor: ""
+    background: ""
+    strokecolor: ""
+  font:
+    fontname: ""
+    textstyle: ""
+    fontsize: ""
+  quote:
+    text: ""
+    title: ""
+    attribution: ""

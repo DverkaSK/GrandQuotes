@@ -17,22 +17,22 @@ public class ImageDrawer implements RenderOperation {
     private final int IMAGE_SIZE = ImageSpecifications.IMAGE_SIZE.getProperty();
 
     @Override public void render(Graphics2D graphics) {
-        UUID uuid = quote.getUuid();
+        String displayName = quote.getPlayer().getName();
 
-        BufferedImage head = ImageLoader.loadImage("https://cravatar.eu/avatar/" + uuid);
+        BufferedImage head = ImageLoader.loadImage("https://cravatar.eu/avatar/" + displayName);
         BufferedImage resizedHead = resizeImage(head, 32, 32);
 
         int x = 3;
         int y = IMAGE_SIZE - resizedHead.getHeight() - 3;
 
         graphics.drawImage(resizedHead, x, y, null);
-        graphics.drawRect(x - 1, y - 3, resizedHead.getWidth() + 3, resizedHead.getHeight() + 3);
+        graphics.drawRect(x - 2, IMAGE_SIZE - resizedHead.getHeight() - 5, resizedHead.getWidth() + 3, resizedHead.getHeight() + 3);
     }
 
     private BufferedImage resizeImage(BufferedImage source, int width, int height) {
-        AffineTransform at = new AffineTransform();
+        final AffineTransform at = new AffineTransform();
         at.scale((double) width / source.getWidth(), (double) height / source.getHeight());
-        AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+        final AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
 
         return scaleOp.filter(
                 source, new BufferedImage(width, height, source.getType())
