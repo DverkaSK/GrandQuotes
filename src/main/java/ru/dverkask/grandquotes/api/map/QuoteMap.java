@@ -8,7 +8,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.MapMeta;
 import org.bukkit.map.MapView;
 
-import java.awt.image.BufferedImage;
 import java.util.List;
 
 public class QuoteMap {

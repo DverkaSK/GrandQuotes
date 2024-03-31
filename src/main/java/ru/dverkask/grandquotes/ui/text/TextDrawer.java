@@ -1,6 +1,5 @@
 package ru.dverkask.grandquotes.ui.text;
 
-import ru.dverkask.grandquotes.api.Quote;
 import ru.dverkask.grandquotes.ui.RenderOperation;
 
 import java.awt.*;
@@ -18,6 +17,9 @@ public class TextDrawer implements RenderOperation {
 
     @Override public void render(Graphics2D graphics) {
         for (TextElement element : textElements) {
+            graphics.setFont(element.decoration().font());
+            graphics.setColor(element.decoration().getTextColor());
+
             List<String> lines = getLines(element.text(), graphics, 120);
 
             for (int i = 0; i < lines.size(); i++) {

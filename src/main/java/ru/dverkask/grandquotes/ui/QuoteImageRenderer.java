@@ -29,12 +29,13 @@ public class QuoteImageRenderer {
 
         this.operations = List.of(
                 new StrokeDrawer(quote),
-                new ImageDrawer(quote)
-                /*new TextDrawer(
+                new ImageDrawer(quote),
+                new TextDrawer(
                         image,
-                        new TextElement(quote.getText(), TextFormatter.CENTER),
-                        new TextElement(quote.getTitle(), TextFormatter.TOP)
-                )*/
+                        new TextElement(quote.getText(), TextFormatter.CENTER, Quote.Decoration.DEFAULT),
+                        new TextElement(quote.getTitle(), TextFormatter.TOP, Quote.Decoration.DEFAULT),
+                        new TextElement(quote.getAttribution(), TextFormatter.BOTTOM, Quote.Decoration.DEFAULT)
+                )
         );
 
         this.graphics = image.createGraphics();

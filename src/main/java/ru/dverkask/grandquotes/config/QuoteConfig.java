@@ -1,25 +1,24 @@
 package ru.dverkask.grandquotes.config;
 
 import lombok.Getter;
-import ru.dverkask.grandquotes.GrandQuotes;
 
 public enum QuoteConfig {
-    DEFAULT_TEXT_COLOR("default.color.textcolor"),
-    DEFAULT_BACKGROUND("default.color.background"),
-    DEFAULT_STROKE_COLOR("default.color.strokecolor"),
-    DEFAULT_FONT_NAME("default.font.fontname"),
-    DEFAULT_TEXT_STYLE("default.font.textstyle"),
-    DEFAULT_FONT_SIZE("default.font.fontsize"),
-    DEFAULT_QUOTE_TEXT("default.quote.text"),
-    DEFAULT_QUOTE_TITLE("default.quote.title"),
-    DEFAULT_QUOTE_ATTRIBUTION("default.quote.attribution");
+    DEFAULT_TEXT_COLOR(new StringConfigValue("default.color.textcolor")),
+    DEFAULT_BACKGROUND(new StringConfigValue("default.color.background")),
+    DEFAULT_STROKE_COLOR(new StringConfigValue("default.color.strokecolor")),
+    DEFAULT_FONT_NAME(new StringConfigValue("default.font.fontname")),
+    DEFAULT_TEXT_STYLE(new IntConfigValue("default.font.textstyle")),
+    DEFAULT_FONT_SIZE(new IntConfigValue("default.font.fontsize")),
+    DEFAULT_QUOTE_TEXT(new StringConfigValue("default.quote.text")),
+    DEFAULT_QUOTE_TITLE(new StringConfigValue("default.quote.title")),
+    DEFAULT_QUOTE_ATTRIBUTION(new StringConfigValue("default.quote.attribution"));
 
-    @Getter private final String path;
-    QuoteConfig(String path) {
-        this.path = path;
+    @Getter private final ConfigValue<?> configValue;
+    QuoteConfig(ConfigValue<?> configValue) {
+        this.configValue = configValue;
     }
-
-    public static void init(GrandQuotes plugin) {
-
+    public <T> T value() {
+        ConfigValue<T> castedConfigValue = (ConfigValue<T>) this.configValue;
+        return castedConfigValue.value();
     }
 }

@@ -9,9 +9,11 @@ import org.jetbrains.annotations.NotNull;
 import ru.dverkask.grandquotes.api.Quote;
 import ru.dverkask.grandquotes.api.map.MapConfiguration;
 import ru.dverkask.grandquotes.api.map.QuoteMap;
+import ru.dverkask.grandquotes.config.QuoteConfig;
 import ru.dverkask.grandquotes.ui.MapImageRenderer;
 
 import java.awt.*;
+import java.util.Optional;
 
 public class QuoteCommand implements CommandExecutor {
     @Override public boolean onCommand(@NotNull CommandSender sender,
@@ -20,16 +22,16 @@ public class QuoteCommand implements CommandExecutor {
                                        @NotNull String[] args) {
         if (sender instanceof Player player) {
             String nickname = args[0];
-            String message = args[1];
+            String message = null;
+
+            if (args.length >= 2) {
+                message = args[1];
+            }
 
             Quote quote = Quote.builder()
-                        .background(Color.BLACK)
-                        .player(Bukkit.getPlayer(nickname))
-                        .owner(player)
-                        .title("Цитаты великих людей")
-                        .text(message)
-                        .attribution(nickname)
-                        .strokeColor(Color.WHITE)
+                    .player(Bukkit.getPlayer(nickname))
+                    .owner(player)
+                    .text(Optional.ofNullable(message).orElse(QuoteConfig.DEFAULT_QUOTE_TEXT.value()))
                     .build();
 
             MapImageRenderer mapImageRenderer = new MapImageRenderer(quote);
