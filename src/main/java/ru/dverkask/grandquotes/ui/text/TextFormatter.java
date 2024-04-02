@@ -24,6 +24,17 @@ public enum TextFormatter {
                     + (lineIndex * graphics.getFontMetrics().getHeight());
             return new Point(x, y);
         }
+    },
+    BOTTOM {
+        @Override public Point position(@NotNull BufferedImage image,
+                                        @NotNull Graphics2D graphics,
+                                        @NotNull String line, int totalLines, int lineIndex) {
+            int x = (image.getWidth() - graphics.getFontMetrics().stringWidth(line)) / 2 + 20;
+            int ascent = graphics.getFontMetrics().getAscent();
+            int y = image.getHeight() - (ascent + (totalLines - lineIndex - 1)
+                    * graphics.getFontMetrics().getHeight() + 3);
+            return new Point(x, y);
+        }
     };
 
     public abstract Point position(@NotNull BufferedImage image, @NotNull Graphics2D graphics, @NotNull String line, int totalLines, int lineIndex);

@@ -1,0 +1,13 @@
+default:
+  color:
+    textcolor: "#ffffff"
+    background: "#000000"
+    strokecolor: "#ffffff"
+  font:
+    fontname: "Minecraft RUS"
+    textstyle: 0
+    fontsize: 12
+  quote:
+    text: "Default text"
+    title: "GrandQuotes"
+    attribution: "Attribution"

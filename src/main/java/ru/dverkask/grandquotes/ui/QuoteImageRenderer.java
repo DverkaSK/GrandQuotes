@@ -4,11 +4,12 @@ import lombok.NonNull;
 import lombok.SneakyThrows;
 import ru.dverkask.grandquotes.api.Quote;
 import ru.dverkask.grandquotes.api.utils.ImageSpecifications;
+import ru.dverkask.grandquotes.ui.text.TextDrawer;
+import ru.dverkask.grandquotes.ui.text.TextElement;
+import ru.dverkask.grandquotes.ui.text.TextFormatter;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.List;
 
 public class QuoteImageRenderer {
@@ -24,8 +25,17 @@ public class QuoteImageRenderer {
                 BufferedImage.TYPE_INT_ARGB
         );
 
+
+
         this.operations = List.of(
-                new StrokeDrawer(quote)
+                new StrokeDrawer(quote),
+                new ImageDrawer(quote),
+                new TextDrawer(
+                        image,
+                        new TextElement(quote.getText(), TextFormatter.CENTER, Quote.Decoration.DEFAULT),
+                        new TextElement(quote.getTitle(), TextFormatter.TOP, Quote.Decoration.DEFAULT),
+                        new TextElement(quote.getAttribution(), TextFormatter.BOTTOM, Quote.Decoration.DEFAULT)
+                )
         );
 
         this.graphics = image.createGraphics();
@@ -33,12 +43,13 @@ public class QuoteImageRenderer {
         this.graphics.fillRect(0, 0, IMAGE_SIZE, IMAGE_SIZE);
     }
 
-    @SneakyThrows public void draw() {
+    @SneakyThrows public BufferedImage draw() {
         for (RenderOperation operation : operations) {
             operation.render(graphics);
         }
+
         this.graphics.dispose();
 
-        ImageIO.write(image, "png", new File("test.png"));
+        return this.image;
     }
 }
