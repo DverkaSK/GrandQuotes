@@ -9,13 +9,11 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
-import java.util.UUID;
 
 @RequiredArgsConstructor
 public class ImageDrawer implements RenderOperation {
     private final Quote quote;
     private final int IMAGE_SIZE = ImageSpecifications.IMAGE_SIZE.getProperty();
-
     @Override public void render(Graphics2D graphics) {
         String displayName = quote.getPlayer().getName();
 

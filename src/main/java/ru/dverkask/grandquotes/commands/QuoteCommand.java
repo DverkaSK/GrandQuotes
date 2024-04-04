@@ -12,7 +12,6 @@ import ru.dverkask.grandquotes.api.map.QuoteMap;
 import ru.dverkask.grandquotes.config.QuoteConfig;
 import ru.dverkask.grandquotes.ui.MapImageRenderer;
 
-import java.awt.*;
 import java.util.Optional;
 
 public class QuoteCommand implements CommandExecutor {
