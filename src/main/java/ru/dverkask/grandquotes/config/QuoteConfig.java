@@ -2,6 +2,7 @@ package ru.dverkask.grandquotes.config;
 
 import lombok.Getter;
 
+@Getter
 public enum QuoteConfig {
     DEFAULT_TEXT_COLOR(new StringConfigValue("default.color.textcolor")),
     DEFAULT_BACKGROUND(new StringConfigValue("default.color.background")),
@@ -13,7 +14,7 @@ public enum QuoteConfig {
     DEFAULT_QUOTE_TITLE(new StringConfigValue("default.quote.title")),
     DEFAULT_QUOTE_ATTRIBUTION(new StringConfigValue("default.quote.attribution"));
 
-    @Getter private final ConfigValue<?> configValue;
+    private final ConfigValue<?> configValue;
     QuoteConfig(ConfigValue<?> configValue) {
         this.configValue = configValue;
     }

@@ -1,9 +1,9 @@
 package ru.dverkask.grandquotes.ui;
 
 import lombok.RequiredArgsConstructor;
-import ru.dverkask.grandquotes.api.Quote;
-import ru.dverkask.grandquotes.api.utils.ImageLoader;
-import ru.dverkask.grandquotes.api.utils.ImageSpecifications;
+import ru.dverkask.grandquotes.Quote;
+import ru.dverkask.grandquotes.utils.ImageLoader;
+import ru.dverkask.grandquotes.utils.ImageSpecifications;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;

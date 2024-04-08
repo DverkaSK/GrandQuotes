@@ -2,8 +2,8 @@ package ru.dverkask.grandquotes.ui;
 
 import lombok.NonNull;
 import lombok.SneakyThrows;
-import ru.dverkask.grandquotes.api.Quote;
-import ru.dverkask.grandquotes.api.utils.ImageSpecifications;
+import ru.dverkask.grandquotes.Quote;
+import ru.dverkask.grandquotes.utils.ImageSpecifications;
 import ru.dverkask.grandquotes.ui.text.TextDrawer;
 import ru.dverkask.grandquotes.ui.text.TextElement;
 import ru.dverkask.grandquotes.ui.text.TextFormatter;

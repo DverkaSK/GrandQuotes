@@ -6,7 +6,7 @@ import org.bukkit.map.MapPalette;
 import org.bukkit.map.MapRenderer;
 import org.bukkit.map.MapView;
 import org.jetbrains.annotations.NotNull;
-import ru.dverkask.grandquotes.api.Quote;
+import ru.dverkask.grandquotes.Quote;
 
 public class MapImageRenderer extends MapRenderer {
     private final QuoteImageRenderer imageRenderer;
