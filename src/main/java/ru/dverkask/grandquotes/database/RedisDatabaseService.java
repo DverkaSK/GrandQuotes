@@ -1,10 +1,13 @@
-package ru.dverkask.grandquotes.api.database;
+package ru.dverkask.grandquotes.database;
 
-import ru.dverkask.grandquotes.api.Quote;
+import ru.dverkask.grandquotes.Quote;
 
 import java.util.List;
 
 public class RedisDatabaseService implements DatabaseService {
+    public RedisDatabaseService(String connection) {
+
+    }
     @Override public void saveQuote(Quote quote) {
 
     }
