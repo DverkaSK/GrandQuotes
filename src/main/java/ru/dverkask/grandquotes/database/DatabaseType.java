@@ -1,4 +1,4 @@
-package ru.dverkask.grandquotes.api.database;
+package ru.dverkask.grandquotes.database;
 
 public enum DatabaseType {
     SQLITE,

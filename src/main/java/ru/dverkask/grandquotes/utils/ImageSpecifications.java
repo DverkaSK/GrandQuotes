@@ -1,4 +1,4 @@
-package ru.dverkask.grandquotes.api.utils;
+package ru.dverkask.grandquotes.utils;
 
 import lombok.Getter;
 
