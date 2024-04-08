@@ -1,4 +1,4 @@
-package ru.dverkask.grandquotes.api.map;
+package ru.dverkask.grandquotes.map;
 
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;

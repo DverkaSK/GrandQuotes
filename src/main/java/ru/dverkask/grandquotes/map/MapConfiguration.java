@@ -1,4 +1,4 @@
-package ru.dverkask.grandquotes.api.map;
+package ru.dverkask.grandquotes.map;
 
 import lombok.NonNull;
 import org.bukkit.Bukkit;
