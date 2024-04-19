@@ -16,6 +16,7 @@ import ru.dverkask.grandquotes.map.QuoteMap;
 import ru.dverkask.grandquotes.config.QuoteConfig;
 import ru.dverkask.grandquotes.ui.MapImageRenderer;
 
+import java.util.Arrays;
 import java.util.Optional;
 
 public class QuoteCommand implements CommandExecutor {
@@ -30,7 +31,7 @@ public class QuoteCommand implements CommandExecutor {
             String message  = null;
 
             if (args.length >= 2) {
-                message = args[1];
+                message = String.join(" ", Arrays.copyOfRange(args, 1, args.length));
             }
 
             Quote quote = Quote.builder()

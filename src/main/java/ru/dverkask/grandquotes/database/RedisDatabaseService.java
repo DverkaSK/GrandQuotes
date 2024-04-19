@@ -12,7 +12,7 @@ public class RedisDatabaseService implements DatabaseService {
 
     }
 
-    @Override public Quote getQuoteById(String id) {
+    @Override public Quote getQuoteById(int id) {
         return null;
     }
 
